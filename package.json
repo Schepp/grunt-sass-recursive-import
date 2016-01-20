@@ -1,7 +1,7 @@
 {
   "name": "grunt-sass-recursive-import",
   "description": "Recursively includes SASS Partials in all Subdirectories",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "homepage": "https://github.com/Schepp/grunt-sass-recursive-import",
   "author": {
     "name": "Christian Schaefer",
