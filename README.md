@@ -27,7 +27,7 @@ grunt.initConfig({
   sass_recursive_import: {
     options: {},
     files: {
-      src: ['src/scss/main.scss']
+      dest: ['src/scss/main.scss']
     },
   },
 });
