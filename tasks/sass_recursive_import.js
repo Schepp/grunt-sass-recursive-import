@@ -21,9 +21,16 @@ module.exports = function (grunt) {
         'sass_recursive_import',
         'Recursively includes SASS Partials in all Subdirectories',
         function () {
-            var files = this.files;
-            var quiet = this.options().quiet;
-            files.forEach(function (file) {
+            var files = this.files,
+                quiet = this.options().quiet,
+                possibleKeys = [
+                    '_',
+                    '-',
+                    '@'
+                ],
+                prefixkey = this.options().prefixkey !== undefined && possibleKeys.indexOf(this.options().prefixkey) ? this.options().prefixkey : '_';
+
+            this.files.forEach(function (file) {
                 file.dest.forEach(function (filepath) {
                     grunt.log.writeln('\n' + filepath + ':');
                     // Create an array that we'll ultimately use to populate our includes file
@@ -38,7 +45,7 @@ module.exports = function (grunt) {
 
                     // Search for underscore prefixed scss files
                     // Then remove the file we're writing the imports to from that set
-                    var filesToInclude = grunt.file.expand([directory + '/**/_*.scss', '!' + filepath]);
+                    var filesToInclude = grunt.file.expand([directory + '/**/' + prefixkey + '*.scss', '!' + filepath]);
 
                     if (!quiet) {
                         grunt.log.writeln('\n' + filepath.yellow + ':');

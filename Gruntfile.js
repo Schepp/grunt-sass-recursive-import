@@ -25,26 +25,19 @@ module.exports = function(grunt) {
 
     // Before generating any new files, remove any previously-created files.
     clean: {
-      tests: ['tmp']
+      scss: [
+        'test/fixtures/*.scss',
+        '!test/fixtures/*test.scss'
+      ]
     },
 
     // Configuration to be run (and then tested).
     sass_recursive_import: {
-      default_options: {
-        options: {
-        },
-        files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
+      options: {
+        prefixkey: '_'
       },
-      custom_options: {
-        options: {
-          separator: ': ',
-          punctuation: ' !!!'
-        },
-        files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
+      files: {
+        dest: ['test/fixtures/_result.scss']
       }
     },
 
