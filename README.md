@@ -20,12 +20,14 @@ grunt.loadNpmTasks('grunt-sass-recursive-import');
 ## The "sass_recursive_import" task
 
 ### Overview
-Find any SASS partial (beginning with an underscore `_`) which resides inside the directory of `main.scss` and its sub-directories and import them into `main.scss`.
+Find any SASS partial (beginning with an certain prefix (default `_`)) which resides inside the directory of `main.scss` and its sub-directories and import them into `main.scss`.
 
 ```js
 grunt.initConfig({
   sass_recursive_import: {
-    options: {},
+    options: {
+      prefix: '_'
+    },
     files: {
       dest: ['src/scss/main.scss']
     },
