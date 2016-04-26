@@ -28,7 +28,7 @@ module.exports = function (grunt) {
                     '-',
                     '@'
                 ],
-                prefixkey = this.options().prefixkey !== undefined && possibleKeys.indexOf(this.options().prefixkey) ? this.options().prefixkey : '_';
+                prefixkey = this.options().prefix && possibleKeys.indexOf(this.options().prefix) ? this.options().prefix : '_';
 
             this.files.forEach(function (file) {
                 file.dest.forEach(function (filepath) {
